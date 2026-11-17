@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Azitha M — AI & Data Science student, builder and creative problem solver." />
+  <title>Azitha M | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0d18;
+      --panel: #111629;
+      --panel-2: #151c32;
+      --text: #f4f5fb;
+      --muted: #a6aec5;
+      --line: rgba(185, 195, 230, .14);
+      --purple: #a78bfa;
+      --blue: #67d5ff;
+      --mint: #8ef0d0;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background:
+        radial-gradient(circle at 85% 8%, rgba(103,213,255,.12), transparent 25rem),
+        radial-gradient(circle at 5% 35%, rgba(167,139,250,.12), transparent 28rem),
+        var(--bg);
+      font-family: "Manrope", sans-serif; line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 44px)); margin: auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px);
+      background: rgba(10,13,24,.76); border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-size: 1.05rem; font-weight: 800; letter-spacing: -.04em; }
+    .brand span { color: var(--purple); }
+    .nav-links { display: flex; gap: 28px; align-items: center; color: var(--muted); font-size: .88rem; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta, .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      border: 1px solid rgba(167,139,250,.42); border-radius: 999px; padding: 11px 18px;
+      color: #fff; background: linear-gradient(110deg, rgba(167,139,250,.2), rgba(103,213,255,.13));
+      font-weight: 700; font-size: .88rem; transition: transform .2s, border-color .2s, background .2s;
+    }
+    .nav-cta:hover, .button:hover { transform: translateY(-3px); border-color: var(--blue); }
+    .hero { padding: 112px 0 94px; display: grid; grid-template-columns: 1.3fr .7fr; gap: 64px; align-items: center; }
+    .eyebrow { color: var(--mint); font: 500 .76rem "DM Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { font-size: clamp(3rem, 7vw, 5.7rem); line-height: 1.02; letter-spacing: -.075em; margin: 20px 0 22px; }
+    h1 .gradient { background: linear-gradient(100deg, var(--purple), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .intro { max-width: 650px; color: var(--muted); font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .button.secondary { border-color: var(--line); background: rgba(255,255,255,.035); color: var(--muted); }
+    .orb-card {
+      min-height: 340px; border: 1px solid var(--line); border-radius: 28px; position: relative; overflow: hidden;
+      background: linear-gradient(145deg, rgba(167,139,250,.13), rgba(103,213,255,.055) 55%, rgba(255,255,255,.025));
+      display: grid; place-items: center; box-shadow: 0 24px 90px rgba(0,0,0,.25);
+    }
+    .orb-card:before, .orb-card:after { content: ""; position: absolute; border: 1px solid rgba(180,190,255,.2); border-radius: 50%; }
+    .orb-card:before { width: 250px; height: 250px; }
+    .orb-card:after { width: 310px; height: 310px; }
+    .orb { width: 155px; height: 155px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #e3d8ff, #a78bfa 35%, #4c77c8 72%, #16213d); box-shadow: 0 0 80px rgba(167,139,250,.4); z-index: 1; }
+    .orb-label { position: absolute; bottom: 25px; left: 25px; color: var(--muted); font: .72rem "DM Mono", monospace; letter-spacing: .08em; }
+    section { padding: 74px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
+    .section-kicker { color: var(--purple); font: .75rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .13em; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.06em; line-height: 1.1; margin: 9px 0 0; }
+    .section-note { color: var(--muted); max-width: 390px; font-size: .9rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .panel { border: 1px solid var(--line); border-radius: 22px; background: rgba(17,22,41,.78); padding: 27px; }
+    .panel p { color: var(--muted); margin: 0; }
+    .focus-list { display: grid; gap: 13px; }
+    .focus-item { display: flex; align-items: center; gap: 13px; color: #dfe4f5; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(135deg,var(--purple),var(--blue)); box-shadow: 0 0 15px rgba(103,213,255,.4); flex: 0 0 auto; }
+    .skills { display: flex; flex-wrap: wrap; gap: 11px; }
+    .chip { border: 1px solid var(--line); background: rgba(255,255,255,.035); color: #d8def0; padding: 10px 14px; border-radius: 12px; font-size: .87rem; }
+    .projects { display: grid; grid-template-columns: repeat(3,1fr); gap: 17px; }
+    .project { min-height: 260px; display: flex; flex-direction: column; transition: transform .22s, border-color .22s; }
+    .project:hover { transform: translateY(-6px); border-color: rgba(167,139,250,.55); }
+    .project-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .project-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; color: var(--blue); background: rgba(103,213,255,.1); font-size: 1.2rem; }
+    .project-type { color: var(--muted); font: .68rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; }
+    h3 { margin: 0 0 10px; font-size: 1.13rem; letter-spacing: -.03em; }
+    .project p { color: var(--muted); font-size: .88rem; margin: 0 0 20px; }
+    .project-foot { margin-top: auto; color: var(--mint); font: .7rem "DM Mono", monospace; }
+    .contact {
+      border: 1px solid rgba(167,139,250,.25); border-radius: 28px; padding: clamp(28px,5vw,54px);
+      background: linear-gradient(120deg, rgba(167,139,250,.13), rgba(103,213,255,.07));
+      display: flex; align-items: center; justify-content: space-between; gap: 30px;
+    }
+    .contact p { color: var(--muted); max-width: 540px; margin-bottom: 0; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0 34px; color: var(--muted); font-size: .8rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding: 80px 0 55px; gap: 35px; }
+      .orb-card { min-height: 260px; }
+      .projects { grid-template-columns: 1fr 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 30px, var(--max)); }
+      .nav-inner { min-height: 66px; }
+      .nav-links { gap: 13px; font-size: .75rem; }
+      .nav-cta { display: none; }
+      .hero { padding-top: 68px; }
+      .about-grid, .projects { grid-template-columns: 1fr; }
+      section { padding: 55px 0; }
+      .contact { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *:before, *:after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home">AZITHA<span>.</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="mailto:azithamahes@gmail.com">Let's talk ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow">AI &amp; Data Science · Student Portfolio</div>
+        <h1>Ideas into<br><span class="gradient">meaningful</span><br>experiences.</h1>
+        <p class="intro">Hi, I'm <strong>Azitha M</strong> — an AI &amp; Data Science student who enjoys exploring technology, solving problems, and building thoughtful digital experiences.</p>
+        <div class="hero-actions">
+          <a class="button" href="#projects">Explore my work <span>↗</span></a>
+          <a class="button secondary" href="mailto:azithamahes@gmail.com">Get in touch</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/azitha-maheswaran-14473837b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="button secondary" href="https://github.com/azithamaheswaran" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="orb-card" aria-label="Abstract purple and blue gradient artwork">
+        <div class="orb"></div>
+        <div class="orb-label">CURIOUS MIND / CREATIVE BUILDER</div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div><div class="section-kicker">01 / About</div><h2>A little about me.</h2></div>
+          <p class="section-note">Learning by building, staying curious, and turning challenges into opportunities.</p>
+        </div>
+        <div class="about-grid">
+          <div class="panel">
+            <p>I'm pursuing a B.Tech in Artificial Intelligence &amp; Data Science. I'm interested in the ways software and intelligent systems can solve real-world problems. I enjoy collaborating on ideas, learning new tools, and improving through hands-on projects.</p>
+          </div>
+          <div class="panel focus-list">
+            <div class="focus-item"><span class="dot"></span> Practical problem-solving</div>
+            <div class="focus-item"><span class="dot"></span> AI, data and emerging technology</div>
+            <div class="focus-item"><span class="dot"></span> Creative, user-focused software</div>
+            <div class="focus-item"><span class="dot"></span> Continuous learning and collaboration</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div><div class="section-kicker">02 / Toolkit</div><h2>Things I'm exploring.</h2></div>
+          <p class="section-note">A growing toolkit — add, remove, or update these as your experience develops.</p>
+        </div>
+        <div class="panel skills">
+          <span class="chip">C / C++</span><span class="chip">Java</span><span class="chip">Python</span>
+          <span class="chip">SQL</span><span class="chip">HTML &amp; CSS</span><span class="chip">JavaScript</span>
+          <span class="chip">Data Structures</span><span class="chip">AI &amp; Data Science</span>
+          <span class="chip">Problem Solving</span><span class="chip">UI Design</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div><div class="section-kicker">03 / Selected ideas</div><h2>Projects &amp; explorations.</h2></div>
+          <p class="section-note">A snapshot of concepts and builds I've explored. Update each card with your latest progress and links.</p>
+        </div>
+        <div class="projects">
+          <article class="panel project">
+            <div class="project-top"><div class="project-icon">✳</div><span class="project-type">AI · Agriculture</span></div>
+            <h3>Smart Farmer Marketplace</h3>
+            <p>A farmer-focused concept connecting procurement and direct-market options, with decision support for comparing price, logistics, and waiting time.</p>
+            <div class="project-foot">HACKATHON CONCEPT</div>
+          </article>
+          <article class="panel project">
+            <div class="project-top"><div class="project-icon">⌘</div><span class="project-type">Networking</span></div>
+            <h3>NOC Intelligence</h3>
+            <p>A network operations concept exploring SD-WAN simulation, routing, VPN segmentation, and quality-of-service monitoring.</p>
+            <div class="project-foot">TECHNICAL EXPLORATION</div>
+          </article>
+          <article class="panel project">
+            <div class="project-top"><div class="project-icon">◎</div><span class="project-type">EdTech · AI</span></div>
+            <h3>Regional Language Practice</h3>
+            <p>An adaptive learning concept that turns study material into practice questions, tracks weak topics, and supports regional-language learning.</p>
+            <div class="project-foot">PRODUCT CONCEPT</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap reveal">
+        <div class="contact">
+          <div>
+            <div class="section-kicker">04 / Contact</div>
+            <h2>Have an idea?<br>Let's connect.</h2>
+            <p>I'm open to learning opportunities, collaborations, and conversations about technology and creative projects.</p>
+          </div>
+          <a class="button" href="mailto:azithamahes@gmail.com">azithamahes@gmail.com ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Azitha M. Made with curiosity.</span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap">
+        <a href="mailto:azithamahes@gmail.com">azithamahes@gmail.com</a>
+        <a href="https://www.linkedin.com/in/azitha-maheswaran-14473837b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="https://github.com/azithamaheswaran" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
